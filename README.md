@@ -13,7 +13,7 @@
 > 当前的取消公众号模块由 Keyboard Maestro「微信公众号管理」宏组逐动作翻译为符合
 > 工程标准的 Python 实现。原宏通过模板图片匹配定位并点击界面元素，本项目沿用同一
 > 思路，但把硬编码的等待时长、容差、坐标偏移等外置到
-> [`config.yml`](official_account_cancel/config.yml)，并补充了日志、命令行参数、dry-run、
+> [`config.yml`](official_account_cancel/config.yml)，并补充了日��、命令行参数、dry-run、
 > 安全急停、Retina 坐标自适配、窗口自动恢复等工程能力。
 
 ## 目录结构
@@ -77,7 +77,7 @@ pip install -r requirements.txt
 ### 使用
 
 ```bash
-# 联调：只识别、打印日志，不真正点击
+# 联调：只���别、打印日志，不真正点击
 python -m official_account_cancel --dry-run -v
 
 # 正式运行（开始前有倒计时，可 Ctrl+C 取消）
@@ -124,3 +124,11 @@ python -m official_account_cancel --max 20 --confidence 0.9
 - 该工具会**真实地取消关注**，操作不可逆，请先用 `--dry-run` 确认识别正确。
 - 运行期间请勿移动鼠标 / 切换窗口；急停方式：把鼠标快速甩到屏幕**任一角落**。
 - 仅在你自己的账号、自担风险使用。
+
+---
+
+## 开源协议
+
+本项目采用 [MIT License](LICENSE) 开源协议。详见 [LICENSE](LICENSE) 文件。
+
+在使用本项目时，你可以自由使用、修改和分发该代码，但需要包含原始的许可证声明。
