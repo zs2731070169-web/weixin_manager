@@ -127,8 +127,6 @@ python -m official_account_cancel --max 20 --confidence 0.9
 
 ---
 
-## 开源协议
-
-本项目采用 [MIT License](LICENSE) 开源协议。详见 [LICENSE](LICENSE) 文件。
+[MIT License](LICENSE) 开源协议。详见 [LICENSE](LICENSE) 文件。
 
 在使用本项目时，你可以自由使用、修改和分发该代码，但需要包含原始的许可证声明。
