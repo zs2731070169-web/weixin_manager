@@ -1,0 +1,64 @@
+# 取消公众号模块配置
+#
+# 这是所有可调参数的真正来源；config.py 在启动时读取本文件。
+# 原 Keyboard Maestro 宏里散落的「魔法数字」（等待时长、匹配容差、点击偏移等）
+# 都收敛在此，方便在不同分辨率 / 机器 / 微信版本上调参。
+# 所有时长单位均为秒。
+
+# —— 目标应用 ——
+wechat_bundle_id: com.tencent.xinWeChat
+wechat_app_name: 微信
+
+# —— 搜索 ——
+search_keyword: 公众号
+
+# —— 图像匹配 ——
+# pyautogui 的 confidence（0~1，越大越严格）。
+confidence: 0.85
+# 搜索结果项原宏 Fuzz=33（更宽松），单独降低阈值。
+search_result_confidence: 0.72
+# 灰度匹配可显著加速 locateOnScreen
+grayscale: true
+
+# —— 点击偏移 ——
+# 「第一个公众号」在匹配图中心下方多少像素处点击
+first_account_click_offset_y: 60
+
+# —— 安全 / 节流 ——
+max_iterations: 500     # 循环安全上限，防止失控
+start_countdown: 3.0    # 正式开始前的倒计时，给用户反应时间
+failsafe: true          # pyautogui 急停：鼠标甩到屏幕角落即中止
+dry_run: false          # 只识别不点击，便于联调
+
+# —— 各步骤之间的等待时长（逐一对应原宏的 Pause 动作）——
+timings:
+  after_activate: 0.5         # 等待微信激活
+  after_open_search: 1.0      # 按下 Cmd+F 后等待搜索框
+  after_type_keyword: 1.0     # 输入关键字后等待搜索结果
+  after_click_result: 0.5     # 点击搜索结果后
+  after_click_account: 1.0    # 点击公众号后等待详情页
+  after_click_following: 0.5  # 点击「已关注」后等待菜单
+  after_branch_decision: 0.5  # 分支判定后
+
+  # 正常分支：取消关注 -> 确认 -> 确认 -> 确认 -> Esc
+  normal_between_clicks: 0.5
+  normal_after_escape: 0.3
+
+  # 失败分支：确认 -> (长等待) -> 确认 -> 确认 -> Esc
+  fail_after_first_confirm: 2.5
+  fail_between_clicks: 0.5
+  fail_after_escape: 0.3
+
+# —— 模板图片文件名（位于 assets/ 下）——
+images:
+  search_result: search_result_gzh.png
+  first_account: first_account.png
+  following_button: following_button.png
+  branch_marker: branch_marker.png      # 与「取消关注」同图，用于分支判定
+  normal_unfollow: normal_unfollow.png
+  normal_confirm_1: normal_confirm_1.png
+  normal_confirm_2: normal_confirm_2.png
+  normal_confirm_3: normal_confirm_3.png
+  fail_confirm_1: fail_confirm_1.png
+  fail_confirm_2: fail_confirm_2.png
+  fail_confirm_3: fail_confirm_3.png

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "weixin-manager"
+version = "1.0.0"
+description = "基于图像识别的 macOS 微信桌面客户端公众号批量管理工具（由 Keyboard Maestro 宏翻译而来）"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "pyautogui>=0.9.54",
+    "opencv-python>=4.8.0",
+    "pillow>=10.0.0",
+    "PyYAML>=6.0",
+]
+
+[project.scripts]
+weixin-manager = "weixin_manager.cli:main"
+
+[tool.setuptools]
+packages = ["weixin_manager"]
+
+[tool.setuptools.package-data]
+# 模板图片在包外的 assets/ 目录，打包时不随包走；源码运行不受影响
+"weixin_manager" = []

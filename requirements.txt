@@ -1,0 +1,8 @@
+# GUI 自动化与图像识别
+pyautogui>=0.9.54
+# locateOnScreen 的 confidence 参数依赖 OpenCV
+opencv-python>=4.8.0
+# 截图 / 图像处理
+pillow>=10.0.0
+# 读取 YAML 配置文件（config.yml）
+PyYAML>=6.0
