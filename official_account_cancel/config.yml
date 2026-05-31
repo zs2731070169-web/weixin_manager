@@ -49,7 +49,7 @@ timings:
   fail_between_clicks: 0.5
   fail_after_escape: 0.3
 
-# —— 模板图片文件名（位于 assets/ 下）——
+# —— 模板图片文件名（位于 assets/official_account_cancel/ 下）——
 images:
   search_result: search_result_gzh.png
   first_account: first_account.png

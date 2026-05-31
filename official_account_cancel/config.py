@@ -19,7 +19,7 @@ import yaml
 
 # 项目根目录（…/weixin_manager），assets 与 official_account_cancel 包同级
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
-_DEFAULT_ASSETS_DIR = _PROJECT_ROOT / "assets"
+_DEFAULT_ASSETS_DIR = _PROJECT_ROOT / "assets" / "official_account_cancel"
 
 # 默认配置文件：与本模块同目录的 config.yml
 _DEFAULT_CONFIG_FILE = Path(__file__).resolve().parent / "config.yml"
